@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Watchlist</title>
+
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="style.css">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <h2 class="text-secondary text-center mt-2">Movies watchlist</h2>
+    <div class="container mt-2">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary col-2 offset-10 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Dodaj novi film
+        </button>
+
+        <table id="movie-table" class="table border">
+            <thead>
+                <tr>
+                    <th>Odgledan</th>
+                    <th>Naziv</th>
+                    <th>Godina</th>
+                    <th>Drzava</th>
+                    <th>Napomena</th>
+                    <th>Glumci</th>
+                </tr>
+            </thead>
+            <tbody id="movie-list">
+
+            </tbody>
+        </table>
+
+        
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Dodaj novi film</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <form id="addMovieForm">
+                        <label for="naziv">Naziv*</label>
+                        <input type="text" name="naziv" id="naziv" class="form-control" required>
+                        <div id="name-alert" class="alert alert-warning" role="alert" hidden>
+                            Naziv filma je obavezan!
+                        </div>
+                        <label for="godina">Godina*</label>
+                        <input type="text" name="godina" id="godina" class="form-control" required>
+                        <div id="year-alert" class="alert alert-warning" role="alert" hidden>
+                            Godina filma mora biti izmedju 1930 i 2021!
+                        </div>
+                        <label for="drzava">Drzava</label>
+                        <input type="text" name="drzava" id="drzava" class="form-control">
+                        <label for="napomena">Napomena</label>
+                        <input type="text" name="napomena" id="napomena" class="form-control">
+                        <label for="glumci">Glumci* (odvojeno zarezom)</label>
+                        <input type="text" name="glumci" id="glumci" class="form-control" required>
+                        <div id="starring-alert" class="alert alert-warning" role="alert" hidden>
+                            Makar jedan glumac je obavezan!
+                        </div>
+                    </form>
+                    <p class="mt-2 text-danger small">
+                        Polja oznacena sa * su obavezna!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetModal()">Zatvori</button>
+                <button type="button" class="btn btn-primary" onclick="addNewMovie()">Sacuvaj</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
